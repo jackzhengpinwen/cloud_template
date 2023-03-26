@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/template?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  flyway:
+    baseline-on-migrate: true
+    baseline-version: 202303121523
+
+logging:
+  level:
+    root: info
+  file:
+    name: logs/platform.log
+  logback:
+    rollingpolicy:
+      file-name-pattern: logs/platform-%d{yyyy-MM-dd}.%i.log
+
+# ???url
+security:
+  ignore:
+    urls:
+      - /api/v1/user/login
+      - /swagger-ui.html
+      - /swagger-resources/**
+      - /doc.html
+      - /v2/api-docs
+      - /webjars/**
